@@ -7,17 +7,27 @@
   </head>
 
   <body>
-    <h1><%=data.kindOfDay%></h1>
+    <div class="box" id="heading">
+      <h1><%=data.kindOfDay%></h1>
+    </div>
 
-    <ul>
+    <div class="box">
       <% data.listItems.forEach((item)=>{%>
-      <li><%=item%></li>
+      <div class="item">
+        <input type="checkbox" />
+        <p><%=item%></p>
+      </div>
       <%});%>
-    </ul>
 
-    <form action="/" method="post">
-      <input type="text" name="newItem" />
-      <button type="submit" name="button">Add</button>
-    </form>
+      <form action="/" method="post">
+        <input
+          type="text"
+          name="newItem"
+          placeholder="New Item"
+          autocomplete="off"
+        />
+        <button type="submit" name="button">+</button>
+      </form>
+    </div>
   </body>
 </html>
