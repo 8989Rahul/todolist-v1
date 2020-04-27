@@ -1,33 +1,28 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Home Page</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
+<%- include("Header") -%>
 
-  <body>
-    <div class="box" id="heading">
-      <h1><%=data.kindOfDay%></h1>
-    </div>
+<div class="box" id="heading">
+  <h1><%=data.listTitle%></h1>
+</div>
 
-    <div class="box">
-      <% data.listItems.forEach((item)=>{%>
-      <div class="item">
-        <input type="checkbox" />
-        <p><%=item%></p>
-      </div>
-      <%});%>
+<div class="box">
+  <% data.listItems.forEach((item)=>{%>
+  <div class="item">
+    <input type="checkbox" />
+    <p><%=item%></p>
+  </div>
+  <%});%>
 
-      <form action="/" method="post">
-        <input
-          type="text"
-          name="newItem"
-          placeholder="New Item"
-          autocomplete="off"
-        />
-        <button type="submit" name="button">+</button>
-      </form>
-    </div>
-  </body>
-</html>
+  <form action="/" method="post">
+    <input
+      type="text"
+      name="newItem"
+      placeholder="New Item"
+      autocomplete="off"
+    />
+    <button type="submit" name="list" value="<%=data.listTitle%>">
+      +
+    </button>
+  </form>
+</div>
+
+<%- include("Footer") -%>
